@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import Weatherinfo from "./Weatherinfo";
+import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -33,7 +34,7 @@ export default function Weather(props) {
       city: response.data.city,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
+      iconUrl: response.data.condition.icon_url,
       date: new Date(response.data.time * 1000),
     });
   }
